@@ -2086,12 +2086,19 @@ namespace VPet_Simulator.Windows
                   if (File.Exists(ExtensionValue.BaseDirectory + @"\Tutorial.html") && Set["SingleTips"].GetDateTime("tutorial") <= new DateTime(2023, 10, 20) && App.MainWindows.Count == 1)
                   {
                       Set["SingleTips"].SetDateTime("tutorial", DateTime.Now);
-                      if (LocalizeCore.CurrentCulture == "zh-Hans")
-                          ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial.html");
-                      else if (LocalizeCore.CurrentCulture == "zh-Hant")
-                          ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial_zht.html");
-                      else
-                          ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial_en.html");
+                      switch (LocalizeCore.CurrentCulture)
+                      {
+                          case "zh-Hans": break;
+                              ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial.html");
+                          case "zh-Hant": break;
+                              ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial_zht.html");
+                          case "ru":
+                              ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial_ru.html");
+                              break;
+                          default: 
+                              ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial_en.html");
+                              break;
+                      }
                   }
                   if (!Set["SingleTips"].GetBool("helloworld"))
                   {
