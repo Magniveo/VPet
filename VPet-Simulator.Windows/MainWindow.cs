@@ -181,7 +181,7 @@ namespace VPet_Simulator.Windows
                             hashcheckimg = new Image();
                             hashcheckimg.Source = ImageResources.NewSafeBitmapImage("pack://application:,,,/Res/hash.png");
                             hashcheckimg.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
-                            hashcheckimg.ToolTip = "是没有修改过存档/使用超模MOD的玩家专属标志".Translate();
+                            hashcheckimg.ToolTip = "Это эксклюзивный логотип игрока, который не вносил изменений в архив/не использовал мод supermodel".Translate();
                             Grid.SetColumn(hashcheckimg, 4);
                             Grid.SetRowSpan(hashcheckimg, 2);
                             Main.ToolBar.gdPanel.Children.Add(hashcheckimg);
@@ -312,7 +312,7 @@ namespace VPet_Simulator.Windows
                 {
                     var menuItem = new System.Windows.Controls.MenuItem()
                     {
-                        Header = "桌宠多开".Translate(),
+                        Header = "Еще больше домашних животных за столом".Translate(),
                         HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
                     };
                     foreach (var win in list)
@@ -1484,11 +1484,11 @@ namespace VPet_Simulator.Windows
 
             await Dispatcher.InvokeAsync(() =>
             {
-                MessageBoxXSettings.Setting.OKButtonContent = "好的".Translate();
-                MessageBoxXSettings.Setting.CancelButtonContent = "取消".Translate();
-                MessageBoxXSettings.Setting.YesButtonContent = "是".Translate();
-                MessageBoxXSettings.Setting.NoButtonContent = "否".Translate();
-                PendingBoxSettings.Setting.CancelButtonContent = "取消".Translate();
+                MessageBoxXSettings.Setting.OKButtonContent = "Ок".Translate();
+                MessageBoxXSettings.Setting.CancelButtonContent = "Отмена".Translate();
+                MessageBoxXSettings.Setting.YesButtonContent = "Да".Translate();
+                MessageBoxXSettings.Setting.NoButtonContent = "Нет".Translate();
+                PendingBoxSettings.Setting.CancelButtonContent = "Отмена".Translate();
                 LoadingText.Content = "尝试加载游戏MOD".Translate();
             });
 
@@ -1506,7 +1506,7 @@ namespace VPet_Simulator.Windows
             ClickTexts.RemoveAll(x => !x.FindTag(tag));
             SelectTexts.RemoveAll(x => !x.FindTag(tag));
 
-            await Dispatcher.InvokeAsync(new Action(() => LoadingText.Content = "尝试加载游戏存档".Translate()));
+            await Dispatcher.InvokeAsync(new Action(() => LoadingText.Content = "Попробуйте загрузить архив с игрой".Translate()));
             //加载存档
             if (File.Exists(ExtensionValue.BaseDirectory + @"\Save.lps")) //有老的旧存档,优先旧存档
                 try
@@ -1567,7 +1567,7 @@ namespace VPet_Simulator.Windows
             //生日蛋糕默认为加满的
             var food = new Food()
             {
-                Name = "生日蛋糕",
+                Name = "торт ко дню рождения",
                 Likability = 5,
                 Exp = 1000,
                 Feeling = 100,
@@ -1575,7 +1575,7 @@ namespace VPet_Simulator.Windows
                 StrengthFood = Core.Save.StrengthMax,
                 Type = FoodType.Food,
                 isoverload = false,
-                Desc = "萝莉丝的专属生日蛋糕，由3桶牛奶+2份糖+1个鸡蛋+3份小麦合。制作而成。营养丰富，可使所有状态回满。只有在萝莉丝生日才能吃的到哦。"
+                Desc = "Эксклюзивный праздничный торт Лорис состоит из 3 порций молока + 2 порций сахара + 1 яйца + 3 порций пшеницы.Сделано.Он богат питательными веществами и способен восполнить все недуги.Ты можешь съесть его только в день рождения Лорис."
             };
             food.LoadImageSource(this);
             food.Price = (int)Math.Max(0, food.RealPrice * .5);
@@ -1622,12 +1622,12 @@ namespace VPet_Simulator.Windows
                 AutoSaveTimer.Interval = Set.AutoSaveInterval * 60000;
                 AutoSaveTimer.Start();
             }
-            ClickTexts.Add(new ClickText("你知道吗? 鼠标右键可以打开菜单栏"));
-            ClickTexts.Add(new ClickText("你知道吗? 你可以在设置里面修改游戏的缩放比例"));
-            ClickTexts.Add(new ClickText("想要宠物不乱动? 设置里可以设置智能移动或者关闭移动"));
-            ClickTexts.Add(new ClickText("这游戏开发这么慢,都怪画师太咕了"));
+            ClickTexts.Add(new ClickText("Вы знали? Нажатием правой кнопки мыши можно открыть строку меню"));
+            ClickTexts.Add(new ClickText("Вы знали? Вы можете изменить масштаб игры в настройках"));
+            ClickTexts.Add(new ClickText("Хотите, чтобы домашние животные не двигались? Вы можете установить интеллектуальное движение или отключить его в настройках"));
+            ClickTexts.Add(new ClickText("Разработка этой игры идет так медленно, и все из-за того, что художник слишком бестолковый."));
             //ClickTexts.Add(new ClickText("有建议/游玩反馈? 来 菜单-系统-反馈中心 反馈吧"));
-            ClickTexts.Add(new ClickText("长按脑袋拖动桌宠到你喜欢的任意位置"));
+            ClickTexts.Add(new ClickText("Нажмите и удерживайте голову, а затем переместите настольного питомца в любое удобное для вас положение"));
 
             ////临时聊天内容
             //ClickTexts.Add(new ClickText("主人，sbema秋季促销开始了哦，还有游戏大奖赛，快去给{name}去投一票吧。"));
@@ -1645,9 +1645,9 @@ namespace VPet_Simulator.Windows
             //给正在玩这个游戏的主播/游戏up主做个小功能
             if (IsSteamUser)
             {
-                ClickTexts.Add(new ClickText("关注 {0} 谢谢喵")
+                ClickTexts.Add(new ClickText("внимание {0} Спасибо тебе, мяу")
                 {
-                    TranslateText = "关注 {0} 谢谢喵".Translate(SteamClient.Name)
+                    TranslateText = "внимание {0} Спасибо тебе, мяу".Translate(SteamClient.Name)
                 });
                 //Steam成就
                 GameSavesData.Statistics.StatisticChanged += Statistics_StatisticChanged;
@@ -1655,7 +1655,7 @@ namespace VPet_Simulator.Windows
                 SteamFriends.SetRichPresence("username", Core.Save.Name);
                 SteamFriends.SetRichPresence("mode", (Core.Save.Mode.ToString() + "ly").Translate());
                 SteamFriends.SetRichPresence("steam_display", "#Status_IDLE");
-                SteamFriends.SetRichPresence("idel", "闲逛".Translate());
+                SteamFriends.SetRichPresence("idel", "слоняться без дела".Translate());
                 if (HashCheck)
                 {
                     SteamFriends.SetRichPresence("lv", $" (lv{GameSavesData.GameSave.Level})");
@@ -1667,9 +1667,9 @@ namespace VPet_Simulator.Windows
             }
             else
             {
-                ClickTexts.Add(new ClickText("关注 {0} 谢谢喵")
+                ClickTexts.Add(new ClickText("внимание {0} Спасибо тебе, мяу")
                 {
-                    TranslateText = "关注 {0} 谢谢喵".Translate(Environment.UserName)
+                    TranslateText = "внимание {0} Спасибо тебе, мяу".Translate(Environment.UserName)
                 });
             }
 
@@ -1754,7 +1754,7 @@ namespace VPet_Simulator.Windows
                   }
                   WorkStarMenu = new System.Windows.Controls.MenuItem()
                   {
-                      Header = "收藏".Translate(),
+                      Header = "Коллекция".Translate(),
                       HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center,
                   };
                   foreach (var w in WorkStar())
@@ -1976,7 +1976,7 @@ namespace VPet_Simulator.Windows
 
                   //加载图标
                   notifyIcon = new NotifyIcon();
-                  notifyIcon.Text = "虚拟桌宠模拟器".Translate() + PrefixSave;
+                  notifyIcon.Text = "Виртуальный настольный симулятор домашних животных".Translate() + PrefixSave;
                   ContextMenu m_menu;
 
                   if (Set.PetHelper)
@@ -1986,13 +1986,13 @@ namespace VPet_Simulator.Windows
 
                   m_menu = new ContextMenu();
                   m_menu.Opening += (x, y) => { GameSavesData.Statistics[(gint)"stat_menu_pop"]++; };
-                  var hitThrough = new MenuItem("鼠标穿透".Translate(), null, (x, y) => { SetTransparentHitThrough(); })
+                  var hitThrough = new MenuItem("Проникновение мыши".Translate(), null, (x, y) => { SetTransparentHitThrough(); })
                   {
                       Name = "NotifyIcon_HitThrough",
                       Checked = HitThrough
                   };
                   m_menu.Items.Add(hitThrough);
-                  var topmost = new MenuItem("置于顶层".Translate(), null, (x, y) =>
+                  var topmost = new MenuItem("Проникновение мыши".Translate(), null, (x, y) =>
                   {
                       Topmost = ((MenuItem)x).Checked;
                   })
@@ -2002,7 +2002,7 @@ namespace VPet_Simulator.Windows
                       Checked = Topmost
                   };
                   m_menu.Items.Add(topmost);
-                  m_menu.Items.Add(new MenuItem("操作教程".Translate(), null, (x, y) =>
+                  m_menu.Items.Add(new MenuItem("Руководство по эксплуатации".Translate(), null, (x, y) =>
                   {
                       if (LocalizeCore.CurrentCulture == "zh-Hans")
                           ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial.html");
@@ -2011,22 +2011,22 @@ namespace VPet_Simulator.Windows
                       else
                           ExtensionFunction.StartURL(ExtensionValue.BaseDirectory + @"\Tutorial_en.html");
                   }));
-                  m_menu.Items.Add(new MenuItem("重置位置与状态".Translate(), null, (x, y) =>
+                  m_menu.Items.Add(new MenuItem("Сброс местоположения и статуса".Translate(), null, (x, y) =>
                   {
                       Main.CleanState();
                       Main.DisplayToNomal();
                       Left = (SystemParameters.PrimaryScreenWidth - Width) / 2;
                       Top = (SystemParameters.PrimaryScreenHeight - Height) / 2;
                   }));
-                  m_menu.Items.Add(new MenuItem("反馈中心".Translate(), null, (x, y) => { new winReport(this).Show(); }));
+                  m_menu.Items.Add(new MenuItem("Центр обратной связи".Translate(), null, (x, y) => { new winReport(this).Show(); }));
                   if (Set.DeBug)
-                      m_menu.Items.Add(new MenuItem("开发控制台".Translate(), null, (x, y) => { new winConsole(this).Show(); }));
+                      m_menu.Items.Add(new MenuItem("Консоль разработки".Translate(), null, (x, y) => { new winConsole(this).Show(); }));
 
-                  m_menu.Items.Add(new MenuItem("设置面板".Translate(), null, (x, y) =>
+                  m_menu.Items.Add(new MenuItem("Панель настроек".Translate(), null, (x, y) =>
                   {
                       winSetting.Show();
                   }));
-                  m_menu.Items.Add(new MenuItem("退出桌宠".Translate(), null, (x, y) => Close()));
+                  m_menu.Items.Add(new MenuItem("Выйдите из-за стола, домашнее животное".Translate(), null, (x, y) => Close()));
 
                   LoadDIY();
 
@@ -2115,7 +2115,7 @@ namespace VPet_Simulator.Windows
                           {
                               var button = new System.Windows.Controls.Button()
                               {
-                                  Content = "点击前往查看".Translate(),
+                                  Content = "Нажмите, чтобы просмотреть".Translate(),
                                   FontSize = 20,
                                   HorizontalAlignment = System.Windows.HorizontalAlignment.Right,
                                   Background = Function.ResourcesBrush(Function.BrushType.PrimaryDark),
@@ -2130,7 +2130,7 @@ namespace VPet_Simulator.Windows
                               };
                               return button;
                           });
-                          Main.Say("哼哼~主人，我的考试成绩出炉了哦，快来和我一起看我的成绩单喵".Translate(), btn, "shining");
+                          Main.Say("Хм ~ Учитель, опубликованы результаты моего экзамена, приходите и прочтите мою расшифровку вместе со мной. Мяу".Translate(), btn, "shining");
                       });
                   }
                   //生日设置提醒

@@ -10,8 +10,8 @@ namespace VPet_Simulator.Tool
         {
             Console.WriteLine("VPet Simulator Tool");
         start:
-            Console.WriteLine("请输入需要使用的功能编号");
-            Console.WriteLine("1. 精简动画相同图片");
+            Console.WriteLine("Пожалуйста, введите номер функции, которую вам нужно использовать");
+            Console.WriteLine("1. Оптимизируйте одну и ту же картинку анимации");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -21,7 +21,7 @@ namespace VPet_Simulator.Tool
                 //    FontPetNew();
                 //    break;
                 default:
-                    Console.WriteLine("暂无该功能");
+                    Console.WriteLine("Такой функции пока нет");
                     goto start;
             }
         }
@@ -30,7 +30,7 @@ namespace VPet_Simulator.Tool
         /// </summary>
         static void Animation()
         {
-            Console.WriteLine("请输入每张图片的持续时间 (单位: 毫秒)");
+            Console.WriteLine("Пожалуйста, введите продолжительность каждого снимка (единица измерения: миллисекунды");
             string timestr = Console.ReadLine();
             if (!int.TryParse(timestr, out int time))
             {
@@ -38,7 +38,7 @@ namespace VPet_Simulator.Tool
             }
             while (true)
             {
-                Console.WriteLine("请输入图片位置");
+                Console.WriteLine("Пожалуйста, укажите местоположение изображения");
                 DirectoryInfo directoryInfo = new DirectoryInfo(Console.ReadLine());
                 AnimationReNameFolder(time, directoryInfo);
             }

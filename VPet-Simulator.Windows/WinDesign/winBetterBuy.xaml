@@ -50,7 +50,7 @@
                                 Click="BtnSearch_Click" />
                     </Grid>
                     <TextBlock VerticalAlignment="Center" Margin="20,0,0,0" FontSize="16" FontWeight="Bold">
-                            <Run Text="{ll:Str 金钱}" />: $ <Run x:Name="rMoney" Loaded="rMoney_Loaded" Text="" />
+                            <Run Text="{ll:Str Монетки}" />: $ <Run x:Name="rMoney" Loaded="rMoney_Loaded" Text="" />
                     </TextBlock>
                 </StackPanel>
                 <Viewbox HorizontalAlignment="Right">

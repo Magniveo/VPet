@@ -9,7 +9,7 @@
   xmlns:pu="https://opensource.panuon.com/wpf-ui"
   xmlns:system="clr-namespace:System;assembly=mscorlib"
   xmlns:vm="clr-namespace:VPet.Solution.ViewModels.SettingEditor"
-  Title="{ll:Str 'VPET 设置编辑器'}"
+  Title="{ll:Str 'VPET Редактор настроек'}"
   Width="1000"
   Height="600"
   MinWidth="400"
@@ -54,7 +54,7 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <TextBox
-        pu:TextBoxHelper.Watermark="{ll:Str 搜索设置}"
+        pu:TextBoxHelper.Watermark="{ll:Str Настройки поиска}"
         Style="{DynamicResource StandardTextBoxStyle}"
         Text="{Binding SearchSetting, UpdateSourceTrigger=PropertyChanged}" />
       <ListBox
@@ -77,13 +77,13 @@
           Margin="0"
           HorizontalAlignment="Stretch"
           Command="{Binding ResetAllSettingCommand}"
-          Content="{ll:Str 全部重置}"
+          Content="{ll:Str Сбросить все}"
           Style="{DynamicResource Button_BaseStyle}" />
         <Button
           Margin="0"
           HorizontalAlignment="Stretch"
           Command="{Binding SaveAllSettingCommand}"
-          Content="{ll:Str 全部保存}"
+          Content="{ll:Str Спасти всех}"
           Style="{DynamicResource Button_BaseStyle}" />
       </StackPanel>
     </Grid>
@@ -103,12 +103,12 @@
               <StackPanel Orientation="Horizontal" />
             </ItemsPanelTemplate>
           </ListBox.ItemsPanel>
-          <ListBoxItem x:Name="ListBoxItem_GraphicsSettings" Content="{ll:Str 图形}" />
-          <ListBoxItem x:Name="ListBoxItem_SystemSettings" Content="{ll:Str 系统}" />
-          <ListBoxItem x:Name="ListBoxItem_InteractiveSettings" Content="{ll:Str 互动}" />
-          <ListBoxItem x:Name="ListBoxItem_CustomizedSettings" Content="{ll:Str 自定}" />
-          <ListBoxItem x:Name="ListBoxItem_DiagnosticSettings" Content="{ll:Str 诊断}" />
-          <ListBoxItem x:Name="ListBoxItem_ModSettings" Content="{ll:Str Mod管理}" />
+          <ListBoxItem x:Name="ListBoxItem_GraphicsSettings" Content="{ll:Str Графика}" />
+          <ListBoxItem x:Name="ListBoxItem_SystemSettings" Content="{ll:Str Система}" />
+          <ListBoxItem x:Name="ListBoxItem_InteractiveSettings" Content="{ll:Str Интерактивные}" />
+          <ListBoxItem x:Name="ListBoxItem_CustomizedSettings" Content="{ll:Str Параметры}" />
+          <ListBoxItem x:Name="ListBoxItem_DiagnosticSettings" Content="{ll:Str Диагностика}" />
+          <ListBoxItem x:Name="ListBoxItem_ModSettings" Content="{ll:Str ModНастройки}" />
         </ListBox>
         <Frame
           x:Name="Frame_Main"
@@ -123,7 +123,7 @@
           HorizontalAlignment="Stretch"
           Command="{Binding OpenFileCommand}"
           CommandParameter="{Binding SelectedItem, ElementName=ListBox_Saves}"
-          Content="{ll:Str 打开文件}"
+          Content="{ll:Str Открыть файл}"
           Style="{StaticResource Button_BaseStyle}" />
         <Button
           Grid.Column="1"
@@ -131,7 +131,7 @@
           HorizontalAlignment="Stretch"
           Command="{Binding OpenFileInExplorerCommand}"
           CommandParameter="{Binding SelectedItem, ElementName=ListBox_Saves}"
-          Content="{ll:Str 从资源管理器打开文件}"
+          Content="{ll:Str Откройте файл из проводника}"
           Style="{StaticResource Button_BaseStyle}" />
         <Button
           Grid.Column="2"
@@ -139,7 +139,7 @@
           HorizontalAlignment="Stretch"
           Command="{Binding SaveSettingCommand}"
           CommandParameter="{Binding SelectedItem, ElementName=ListBox_Saves}"
-          Content="{ll:Str 保存}"
+          Content="{ll:Str Сохранить}"
           Style="{StaticResource RemindStyle}"
           Tag="{Binding CurrentSetting.IsChanged}" />
         <Button
@@ -148,7 +148,7 @@
           HorizontalAlignment="Stretch"
           Command="{Binding ResetSettingCommand}"
           CommandParameter="{Binding SelectedItem, ElementName=ListBox_Saves}"
-          Content="{ll:Str 重置}"
+          Content="{ll:Str Сброс}"
           Style="{StaticResource Button_BaseStyle}" />
       </StackPanel>
       <!--<TabControl

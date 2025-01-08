@@ -34,13 +34,13 @@
                 </Border>
             </DataTemplate>
         </TabControl.ContentTemplate>
-        <TabItem Header="{ll:Str 统计面板}">
+        <TabItem Header="{ll:Str Панель статистики}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBox x:Name="TextBox_Search" pu:TextBoxHelper.Watermark="{ll:Str 搜索统计}"
+                <TextBox x:Name="TextBox_Search" pu:TextBoxHelper.Watermark="{ll:Str Статистика поиска}"
                         Style="{DynamicResource StandardTextBoxStyle}" TextChanged="TextBox_Search_TextChanged" />
                 <DataGrid x:Name="DataGridStatic" Grid.Row="1" Margin="0,5,0,0"
                         d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False" CanUserAddRows="False">
@@ -51,11 +51,11 @@
                     </DataGrid.RowStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding StatName}"
-                                ElementStyle="{StaticResource DataGridTextColumnLeftSytle}" Header="{ll:Str 名称}"
+                                ElementStyle="{StaticResource DataGridTextColumnLeftSytle}" Header="{ll:Str название}"
                                 IsReadOnly="True" Width="300">
                         </DataGridTextColumn>
                         <DataGridTextColumn Binding="{Binding StatCount}"
-                                ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="{ll:Str 数量}"
+                                ElementStyle="{StaticResource DataGridTextColumnCenterSytle}" Header="{ll:Str количество}"
                                 IsReadOnly="True" Width="160" />
                     </DataGrid.Columns>
                 </DataGrid>

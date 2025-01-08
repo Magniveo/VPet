@@ -392,7 +392,7 @@ public partial class winWorkMenu : WindowX
     {
         if (package == null)
         {
-            rpnDescribe.Text = rpnName.Text = "暂无签署套餐".Translate();
+            rpnDescribe.Text = rpnName.Text = "Пакета с подписью пока нет".Translate();
             rpnEndDate.Text = rpnPrice.Text = rpnCommissions.Text = "-";
             rpnEndDay.Text = "0";
             pack = null;
@@ -486,14 +486,15 @@ public partial class winWorkMenu : WindowX
         double refound = 0;
         if (package.Price > mw.Core.Save.Money)
         {
-            MessageBoxX.Show("金钱不足".Translate(), "签署失败".Translate());
+            MessageBoxX.Show("Нехватка денег".Translate(), "Не удалось выполнить подписание".Translate());
             return;
         }
         if (nowselefull.WorkType == Work.WorkType.Work)
         {
             if (mw.ScheduleTask.PackageWork?.IsActive() == true)
             {
-                if (MessageBoxX.Show("工作套餐已激活,是否替换?".Translate(), "套餐已激活".Translate(), MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                if (MessageBoxX.Show("Рабочий пакет был активирован, независимо от того, следует ли его заменять или нет?".Translate(), 
+                        "Пакет был активирован".Translate(), MessageBoxButton.YesNo) != MessageBoxResult.Yes)
                     return;
                 //计算价格,给剩下的退款
                 double lefttime = (mw.ScheduleTask.PackageWork.EndTime - DateTime.Now).TotalDays / 2;
@@ -515,7 +516,7 @@ public partial class winWorkMenu : WindowX
         {
             if (mw.ScheduleTask.PackageStudy?.IsActive() == true)
             {
-                if (MessageBoxX.Show("学习套餐已激活,是否替换?".Translate(), "套餐已激活".Translate(), MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                if (MessageBoxX.Show("Пакет был активирован?".Translate(), "Пакет был активирован".Translate(), MessageBoxButton.YesNo) != MessageBoxResult.Yes)
                     return;
                 //计算价格,给剩下的退款
                 double lefttime = (mw.ScheduleTask.PackageStudy.EndTime - DateTime.Now).TotalDays / 2;
@@ -535,7 +536,7 @@ public partial class winWorkMenu : WindowX
         }
         tbtnCurrentPlan.IsChecked = true;
         mw.Core.Save.Money -= package.Price - refound;
-        MessageBoxX.Show("套餐 {0} 签署成功".Translate(package.NameTrans) + (refound == 0 ? "" :
+        MessageBoxX.Show("Пакет {0} успешно подписан".Translate(package.NameTrans) + (refound == 0 ? "" :
           '\n' + "获得 {0:f1} 退款".Translate(refound)), "签署成功".Translate());
     }
 

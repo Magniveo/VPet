@@ -28,13 +28,13 @@
           <Label
             HorizontalContentAlignment="Left"
             h:ElementHelper.UniformMinWidthGroup="A"
-            Content="{ll:Str 自动保存频率}"
+            Content="{ll:Str Автоматическое сохранение частоты}"
             Style="{DynamicResource Label_BaseStyle}"
-            ToolTip="{ll:Str 在指定时间后自动保存游戏数据}" />
+            ToolTip="{ll:Str Автоматическое сохранение игровых данных по истечении заданного времени}" />
           <TextBlock
             Grid.Column="1"
             Style="{DynamicResource TextBlock_BaseStyle}"
-            Text="{ll:Str 每次间隔}" />
+            Text="{ll:Str Каждый интервал}" />
           <ComboBox
             x:Name="CBAutoSave"
             Grid.Column="2"
@@ -45,7 +45,7 @@
           <TextBlock
             Grid.Column="3"
             Style="{DynamicResource TextBlock_BaseStyle}"
-            Text="{ll:Str 分钟}" />
+            Text="{ll:Str минута}" />
         </Grid>
         <Grid MinHeight="40">
           <Grid.ColumnDefinitions>
@@ -56,12 +56,12 @@
           <Label
             HorizontalContentAlignment="Left"
             h:ElementHelper.UniformMinWidthGroup="A"
-            Content="{ll:Str 备份设置}"
+            Content="{ll:Str Настройки резервного копирования}"
             Style="{DynamicResource Label_BaseStyle}" />
           <TextBlock
             Grid.Column="1"
             Style="{DynamicResource TextBlock_BaseStyle}"
-            Text="{ll:Str 备份数量}" />
+            Text="{ll:Str Количество резервных копий}" />
           <pu:NumberInput
             x:Name="numBackupSaveMaxNum"
             Grid.Column="2"
@@ -124,7 +124,7 @@
           <Label
             HorizontalContentAlignment="Left"
             h:ElementHelper.UniformMinWidthGroup="A"
-            Content="{ll:Str 聊天设置}"
+            Content="{ll:Str Настройки чата}"
             Style="{DynamicResource Label_BaseStyle}" />
           <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -139,7 +139,7 @@
             <RadioButton
               x:Name="RBCGPTUseLB"
               d:Checked="CGPType_Checked"
-              Content="{ll:Str '使用桌宠选项式\&#13;聊天功能'}"
+              Content="{ll:Str 'Используйте функцию чата table pet option\&#13;'}"
               GroupName="cgpttype"
               IsChecked="True"
               Style="{DynamicResource StandardRadioButtonStyle}"
@@ -148,7 +148,7 @@
               x:Name="RBCGPTClose"
               Grid.Column="1"
               d:Checked="CGPType_Checked"
-              Content="{ll:Str '关闭聊天框'}"
+              Content="{ll:Str 'Закройте окно чата'}"
               GroupName="cgpttype"
               Style="{DynamicResource StandardRadioButtonStyle}" />
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
@@ -160,7 +160,7 @@
               <RadioButton
                 x:Name="RBCGPTDIY"
                 d:Checked="CGPType_Checked"
-                Content="{ll:Str '自定义聊天接口'}"
+                Content="{ll:Str 'Пользовательский интерфейс чата'}"
                 GroupName="cgpttype"
                 Style="{DynamicResource StandardRadioButtonStyle}" />
               <ComboBox
@@ -173,7 +173,7 @@
                 Grid.Column="2"
                 d:Click="ChatGPT_Reset_Click"
                 Background="{DynamicResource SecondaryLight}"
-                Content="{ll:Str 初始化桌宠聊天程序}"
+                Content="{ll:Str Инициализируйте программу общения с домашними животными за столом}"
                 Style="{DynamicResource Button_BaseStyle}" />
             </Grid>
           </Grid>

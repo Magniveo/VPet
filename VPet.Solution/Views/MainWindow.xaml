@@ -4,7 +4,7 @@
         xmlns:ll="clr-namespace:LinePutScript.Localization.WPF;assembly=LinePutScript.Localization.WPF"
         xmlns:local="clr-namespace:VPet.Solution" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pu="https://opensource.panuon.com/wpf-ui" xmlns:system="clr-namespace:System;assembly=mscorlib"
-        xmlns:vm="clr-namespace:VPet.Solution.ViewModels" Title="{ll:Str 'VPET 问题解决工具'}" Width="400" Height="450"
+        xmlns:vm="clr-namespace:VPet.Solution.ViewModels" Title="{ll:Str 'VPET Инструменты для решения проблем'}" Width="400" Height="450"
         MinWidth="400" MinHeight="200" d:DataContext="{d:DesignInstance Type=vm:MainWindowVM}"
         WindowStartupLocation="CenterScreen" mc:Ignorable="d">
     <Grid>
@@ -12,13 +12,13 @@
             <RowDefinition Height="Auto" MinHeight="200" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Height="Auto" Content="{ll:Str 'VPET 问题解决工具'}" FontSize="32" Style="{DynamicResource Label_BaseStyle}" />
+        <Label Height="Auto" Content="{ll:Str 'VPET Инструменты для решения проблем'}" FontSize="32" Style="{DynamicResource Label_BaseStyle}" />
         <ComboBox MinWidth="150" x:Name="ComboBox_Langs" Grid.Column="1" HorizontalAlignment="Right"
                 VerticalAlignment="Top" ItemsSource="{Binding AvailableCultures}"
                 SelectedItem="{Binding CurrentCulture}" Style="{DynamicResource ComboBox_BaseStyle}">
             <ComboBox.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Command="{Binding OpenLocalTextCommand}" Header="{ll:Str 打开翻译文本}" />
+                    <MenuItem Command="{Binding OpenLocalTextCommand}" Header="{ll:Str Открыть переведенный текст}" />
                 </ContextMenu>
             </ComboBox.ContextMenu>
         </ComboBox>
@@ -29,11 +29,11 @@
             </Grid.RowDefinitions>
             <StackPanel>
                 <Button MinWidth="150" x:Name="Button_OpenSettingEditor" Click="Button_OpenSettingEditor_Click"
-                        Content="{ll:Str 打开设置编辑器}" FontSize="16" Style="{DynamicResource Button_BaseStyle}" />
+                        Content="{ll:Str Откройте редактор настроек}" FontSize="16" Style="{DynamicResource Button_BaseStyle}" />
                 <Button MinWidth="150" x:Name="Button_OpenSaveViewer" Click="Button_OpenSaveViewer_Click"
-                        Content="{ll:Str 打开存档查看器}" FontSize="16" Style="{DynamicResource Button_BaseStyle}" />
+                        Content="{ll:Str Откройте программу просмотра архивов}" FontSize="16" Style="{DynamicResource Button_BaseStyle}" />
             </StackPanel>
-            <Button Grid.Row="1" Command="{Binding FirstStartFailedCommand}" Content="{ll:Str '第一次启动桌宠打不开?'}"
+            <Button Grid.Row="1" Command="{Binding FirstStartFailedCommand}" Content="{ll:Str 'Нельзя ли открыть настольный питомец при его первой активации?'}"
                     FontSize="16" Style="{DynamicResource LinkButtonStyle}" />
         </Grid>
     </Grid>

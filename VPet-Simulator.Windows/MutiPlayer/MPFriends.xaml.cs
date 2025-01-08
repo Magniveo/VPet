@@ -206,14 +206,14 @@ public partial class MPFriends : WindowX, IMPFriend
 
     private void Main_Event_TouchHead()
     {
-        Main.LabelDisplayShow("{0}在摸{1}的头".Translate(SteamClient.Name, Core.Save.Name), 3000);
+        Main.LabelDisplayShow("{0} прикасается к голове {1}".Translate(SteamClient.Name, Core.Save.Name), 3000);
         var msg = new MPMessage() { Type = (int)MSGType.Interact, To = friend.Id };
         msg.SetContent(Interact.TouchHead);
         wmp.SendMessageALL(msg);
     }
     private void Main_Event_TouchBody()
     {
-        Main.LabelDisplayShow("{0}在摸{1}的头".Translate(SteamClient.Name, Core.Save.Name), 3000);
+        Main.LabelDisplayShow("{0} прикасается к голове {1}".Translate(SteamClient.Name, Core.Save.Name), 3000);
         var msg = new MPMessage() { Type = (int)MSGType.Interact, To = friend.Id };
         msg.SetContent(Interact.TouchBody);
         wmp.SendMessageALL(msg);
@@ -256,16 +256,16 @@ public partial class MPFriends : WindowX, IMPFriend
         DisplayFoodAnimation(feed.Item.GetGraph(), Dispatcher.Invoke(() => ImageSources.FindImage("food_" + (feed.Item.Image ?? feed.Item.Name), "food")));
         if (feed.EnableFunction)
         {
-            mw.Main.LabelDisplayShow("{0}花费${3}给{4}的{1}买了{2}".Translate(byname, mw.GameSavesData.GameSave.Name,
+            mw.Main.LabelDisplayShow("{0} Потратил{3} доллара и купил {2} за {1} из {4}".Translate(byname, mw.GameSavesData.GameSave.Name,
                 feed.Item.TranslateName, feed.Item.Price, friend.Name));
-            wmp.Log("{0}花费${3}{4}的给{1}买了{2}".Translate(byname, mw.GameSavesData.GameSave.Name, feed.Item.TranslateName,
+            wmp.Log("{0} Потратил${3}{4} и купил {2} за {1}".Translate(byname, mw.GameSavesData.GameSave.Name, feed.Item.TranslateName,
                 feed.Item.Price, friend.Name));
             mw.TakeItem(feed.Item);
         }
         else
         {
-            mw.Main.LabelDisplayShow("{0}给{3}的{1}买了{2}".Translate(byname, mw.GameSavesData.GameSave.Name, feed.Item.TranslateName, friend.Name));
-            wmp.Log("{0}给{3}的{1}买了{2}".Translate(byname, mw.GameSavesData.GameSave.Name, feed.Item.TranslateName, friend.Name));
+            mw.Main.LabelDisplayShow("{0} Купил {2} за {1} из {3}".Translate(byname, mw.GameSavesData.GameSave.Name, feed.Item.TranslateName, friend.Name));
+            wmp.Log("{0} Купил {2} за {1} из {3}".Translate(byname, mw.GameSavesData.GameSave.Name, feed.Item.TranslateName, friend.Name));
         }
     }
     /// <summary>
@@ -334,14 +334,14 @@ public partial class MPFriends : WindowX, IMPFriend
             Task.Run(Main.Load_24_WaitAndStart);
 
             Main.ToolBar.MenuInteract.Items.Clear();
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Interact, "摸头".Translate(), DisplayTouchHead);
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Interact, "摸身体".Translate(), DisplayTouchBody);
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Interact, "捏脸".Translate(), () => DisplayPinch());
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Interact, "Прикоснись к своей голове".Translate(), DisplayTouchHead);
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Interact, "Прикоснуться к телу".Translate(), DisplayTouchBody);
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Interact, "Зажимная грань".Translate(), () => DisplayPinch());
 
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Setting, "退出访客表".Translate(), wmp.Close);
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Setting, "Закройте форму для посетителей".Translate(), wmp.Close);
             var menuItem = new MenuItem()
             {
-                Header = "置于顶层".Translate(),
+                Header = "Расположен на верхнем этаже".Translate(),
                 HorizontalContentAlignment = HorizontalAlignment.Center,
                 IsCheckable = true,
                 IsChecked = Topmost
@@ -374,9 +374,9 @@ public partial class MPFriends : WindowX, IMPFriend
                 NoTouchFalse();
             }
 
-            cbTalk.Items.Add("私聊".Translate());
-            cbTalk.Items.Add("公聊".Translate());
-            cbTalk.Items.Add("大家".Translate());
+            cbTalk.Items.Add("Приватный чат".Translate());
+            cbTalk.Items.Add("Публичный чат".Translate());
+            cbTalk.Items.Add("Все".Translate());
             cbTalk.SelectedIndex = 1;
 
             LoadingText.Content = "正在加载游戏\n该步骤可能会耗时比较长\n请耐心等待".Translate();
@@ -406,28 +406,28 @@ public partial class MPFriends : WindowX, IMPFriend
                     new Point(pin[(gdbe)"px"], pin[(gdbe)"py"]), new Size(pin[(gdbe)"sw"], pin[(gdbe)"sh"])
                     , DisplayPinch, true));
             }
-            Title = "{0}的{1}".Translate(friend.Name, Core.Save.Name);
-            LoadingText.Content = "{0}的{1}".Translate(friend.Name, Core.Save.Name);
+            Title = "{0}Который{1}".Translate(friend.Name, Core.Save.Name);
+            LoadingText.Content = "{0}Который{1}".Translate(friend.Name, Core.Save.Name);
             LoadingText.Background = Function.ResourcesBrush(Function.BrushType.DARKPrimaryTransA);
             LoadingText.VerticalAlignment = VerticalAlignment.Top;
 
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "吃饭".Translate(), () =>
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "Поесть".Translate(), () =>
             {
                 ShowBetterBuy(Food.FoodType.Meal);
             });
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "喝水".Translate(), () =>
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "Пить воду".Translate(), () =>
             {
                 ShowBetterBuy(Food.FoodType.Drink);
             });
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "收藏".Translate(), () =>
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "Коллекция".Translate(), () =>
             {
                 ShowBetterBuy(Food.FoodType.Star);
             });
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "药品".Translate(), () =>
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "Лекарство".Translate(), () =>
             {
                 ShowBetterBuy(Food.FoodType.Drug);
             });
-            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "礼品".Translate(), () =>
+            Main.ToolBar.AddMenuButton(ToolBar.MenuType.Feed, "Подарок".Translate(), () =>
             {
                 ShowBetterBuy(Food.FoodType.Gift);
             });
@@ -474,7 +474,7 @@ public partial class MPFriends : WindowX, IMPFriend
             return false;
         }
         Main.CountNomal = 0;
-        Main.LabelDisplayShow("{0}在捏{1}的脸".Translate(SteamClient.Name, Core.Save.Name), 3000);
+        Main.LabelDisplayShow("{0}щиплет {1} за лицо".Translate(SteamClient.Name, Core.Save.Name), 3000);
         if (Main.DisplayType.Name == "pinch")
         {
             if (Main.DisplayType.Animat == AnimatType.A_Start)
@@ -497,7 +497,7 @@ public partial class MPFriends : WindowX, IMPFriend
     }
     private void DisplayPinch_loop()
     {
-        Main.LabelDisplayShow("{0}在捏{1}的脸".Translate(SteamClient.Name, Core.Save.Name), 3000);
+        Main.LabelDisplayShow("{0}щиплет {1} за лицо".Translate(SteamClient.Name, Core.Save.Name), 3000);
         var msg = new MPMessage() { Type = (int)MSGType.Interact, To = friend.Id };
         msg.SetContent(Interact.TouchPinch);
         wmp.SendMessageALL(msg);
@@ -603,10 +603,10 @@ public partial class MPFriends : WindowX, IMPFriend
             {
                 case Interact.TouchHead:
                 case Interact.TouchBody:
-                    Main.LabelDisplayShow("{0}在摸{1}的头".Translate(byname, Core.Save.Name), 3000);
+                    Main.LabelDisplayShow("{0} прикасается к голове {1}".Translate(byname, Core.Save.Name), 3000);
                     break;
                 case Interact.TouchPinch:
-                    Main.LabelDisplayShow("{0}在捏{1}的脸".Translate(byname, Core.Save.Name));
+                    Main.LabelDisplayShow("{0} щиплет {1} за лицо".Translate(byname, Core.Save.Name));
                     break;
             }
             return;
@@ -615,15 +615,15 @@ public partial class MPFriends : WindowX, IMPFriend
         {
             case Interact.TouchHead:
                 DisplayNOCALTouchHead();
-                Main.LabelDisplayShow("{0}在摸{1}的头".Translate(byname, Core.Save.Name), 3000);
+                Main.LabelDisplayShow("{0} прикасается к голове {1}".Translate(byname, Core.Save.Name), 3000);
                 break;
             case Interact.TouchBody:
                 DisplayNOCALTouchBody();
-                Main.LabelDisplayShow("{0}在摸{1}的头".Translate(byname, Core.Save.Name), 3000);
+                Main.LabelDisplayShow("{0} прикасается к голове {1}".Translate(byname, Core.Save.Name), 3000);
                 break;
             case Interact.TouchPinch:
                 DisplayNOCALTouchPinch();
-                Main.LabelDisplayShow("{0}在捏{1}的脸".Translate(byname, Core.Save.Name), 3000);
+                Main.LabelDisplayShow("{0} щиплет {1} за лицо".Translate(byname, Core.Save.Name), 3000);
                 break;
         }
     }
@@ -811,13 +811,13 @@ public partial class MPFriends : WindowX, IMPFriend
         switch (cbTalk.SelectedIndex)
         {
             case 0:
-                Panuon.WPF.UI.TextBoxHelper.SetWatermark(tbTalk, "和{0}悄悄说".Translate(friend.Name));
+                Panuon.WPF.UI.TextBoxHelper.SetWatermark(tbTalk, "Поговорить с {0} тихо".Translate(friend.Name));
                 break;
             case 1:
-                Panuon.WPF.UI.TextBoxHelper.SetWatermark(tbTalk, "和{0}说".Translate(friend.Name));
+                Panuon.WPF.UI.TextBoxHelper.SetWatermark(tbTalk, "Поговорить с {0} сказать".Translate(friend.Name));
                 break;
             case 2:
-                Panuon.WPF.UI.TextBoxHelper.SetWatermark(tbTalk, "和大家说");
+                Panuon.WPF.UI.TextBoxHelper.SetWatermark(tbTalk, "Расскажи всем");
                 break;
         }
     }

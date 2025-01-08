@@ -7,11 +7,11 @@
     <MenuItem
       Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType=Page, Mode=FindAncestor}}"
       CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DataGridRow, Mode=FindAncestor}}"
-      Header="{ll:Str 修改}" />
+      Header="{ll:Str Изменить}" />
     <MenuItem
       Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=Page, Mode=FindAncestor}}"
       CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DataGridRow, Mode=FindAncestor}}"
-      Header="{ll:Str 删除}" />
+      Header="{ll:Str Удалить}" />
   </ContextMenu>
   <ControlTemplate x:Key="ListBoxItem_RangeData" TargetType="ListBoxItem">
     <Grid>
@@ -29,12 +29,12 @@
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Content="{ll:Str 最小值}" />
+        <Label Content="{ll:Str Минимальное значение}" />
         <pu:NumberInput
           Grid.Column="1"
           ToolTip="{Binding Value, RelativeSource={RelativeSource Mode=Self}}"
           Value="{Binding DataContext.Min.Value, RelativeSource={RelativeSource AncestorType=ListBoxItem, Mode=FindAncestor}}" />
-        <Label Grid.Row="1" Content="{ll:Str 最大值}" />
+        <Label Grid.Row="1" Content="{ll:Str Максимальное значение}" />
         <pu:NumberInput
           Grid.Row="1"
           Grid.Column="1"
